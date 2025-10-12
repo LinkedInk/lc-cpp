@@ -8,9 +8,9 @@
 #include <unordered_map>
 using namespace std;
 
-#include "pasta/my_print.cpp"
-#include "pasta/binary_search.cpp"
-#include "pasta/tree_gen.cpp"
+#include "my_print.cpp"
+#include "binary_search.cpp"
+#include "tree_gen.cpp"
 
 #define loopst(i, s, e) for (size_t i = s; i < e; i++)
 #define loopstd(i, s, e) for (size_t i = s; i > e; i--)
