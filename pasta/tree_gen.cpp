@@ -20,26 +20,51 @@ struct TreeNode {
 
 class TreeGen {
 public:
-    static TreeNode* gen(vector<int>& v) {
-        if (v.size() == 0) {
+
+    // Encodes a tree to a single string.
+    static string serialize(TreeNode* root) {
+        if (!root) {
+            return "N";
+        }
+        string res;
+        queue<TreeNode*> q;
+        q.push(root);
+        while (!q.empty()) {
+            TreeNode* node = q.front();
+            q.pop();
+            if (!node) {
+                res.append("N,");
+                continue;
+            }
+            q.push(node->left);
+            q.push(node->right);
+            res.append(to_string(node->val)).append(",");
+        }
+        return res;
+    }
+    
+    // input string must describe the tree in a BFS format, include N as null
+    static TreeNode* deserialize(string& data) {
+        stringstream ss(data);
+        string val;
+        getline(ss, val, ',');
+        if (val == "N") {
             return nullptr;
         }
-        queue<TreeNode*> nextLayer;
-        queue<TreeNode*> currentLayer;
-        TreeNode* root = new TreeNode(v[0]);
-        currentLayer.push(root);
-        for (int i = 1; i < v.size(); i++) {
-            if (currentLayer.size() == 0) {
-                swap(currentLayer, nextLayer);
+        TreeNode* root = new TreeNode(stoi(val));
+        queue<TreeNode*> q;
+        q.push(root);
+        while (getline(ss, val, ',')) {
+            TreeNode* node = q.front();
+            q.pop();
+            if (val != "N") {
+                node->left = new TreeNode(stoi(val));
+                q.push(node->left);
             }
-            TreeNode* node = currentLayer.front();
-            if (node->left == nullptr) {
-                node->left = new TreeNode(v[i]);
-                nextLayer.push(node->left);
-            } else if (node->right != nullptr) {
-                node->right = new TreeNode(v[i]);
-                nextLayer.push(node->right);
-                currentLayer.pop();
+            getline(ss, val, ',');
+            if (val != "N") {
+                node->right = new TreeNode(stoi(val));
+                q.push(node->right);
             }
         }
         return root;
