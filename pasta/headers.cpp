@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <sstream>
+#include <unordered_set>
 using namespace std;
 
 #include "my_print.cpp"
@@ -18,4 +19,5 @@ using namespace std;
 #define loopi(i, s, e) for (int i = s; i < e; i++)
 #define loopid(i, s, e) for (int i = s; i > e; i--)
 
+// #include "..\pasta\headers.cpp"
 // #include "pasta\headers.cpp"
