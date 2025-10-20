@@ -1,4 +1,4 @@
-#include "..\pasta\headers.cpp"
+#include "pasta\headers.cpp"
 
 
 // Definition for singly-linked list.
