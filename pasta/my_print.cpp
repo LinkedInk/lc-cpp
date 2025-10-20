@@ -14,11 +14,16 @@ public:
     // stringfy methods
     // primitives
     template <typename T>
-    static string stringfy(T i) {
+    static string stringfy(T& i) {
         return to_string(i);
     }
     static string stringfy(string& i) {
         return i;
+    }
+    static string stringfy(char& i) {
+        string res;
+        res.push_back(i);
+        return res;
     }
     // data structures
     template <typename T, typename U>
@@ -62,6 +67,19 @@ public:
         }
         res.pop_back();
         res.append("}");
+        return res;
+    }
+    template <typename T, typename U, typename V>
+    static string stringfy(priority_queue<T, U, V>& pq) {
+        vector<T> temp;
+        while (!pq.empty()) {
+            temp.emplace_back(pq.top());
+            pq.pop();
+        }
+        string res = stringfy(temp);
+        for (T& e : temp) {
+            pq.emplace(e);
+        }
         return res;
     }
 
