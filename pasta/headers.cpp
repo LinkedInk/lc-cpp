@@ -17,3 +17,4 @@ using namespace std;
 #include "binary_search.cpp"
 #include "tree_gen.cpp"
 #include "my_hashes.cpp"
+#include "my_compares.cpp"
