@@ -6,48 +6,76 @@
 #include <cstdint>
 #include <algorithm>
 #include <unordered_map>
+#include <unordered_set>
 using namespace std;
 
 class MyPrint {
 public:
-    static void print(vector<int>& v) {
-        cout << "[";
-        for (int i = 0; i < v.size(); i++) {
-            if (i != 0) {
-                cout << ",";
-            }
-            cout << v[i];
-        }
-        cout << "]";
+    // stringfy methods
+    // primitives
+    template <typename T>
+    static string stringfy(T i) {
+        return to_string(i);
     }
-    static void print(vector<vector<int>>& v) {
-        cout << "[";
-        for (int i = 0; i < v.size(); i++) {
-            if (i != 0) {
-                cout << ",";
-            }
-            print(v[i]);
-        }
-        cout << "]";
+    static string stringfy(string& i) {
+        return i;
     }
-    static void print(vector<string>& v) {
-        cout << "[";
-        for (int i = 0; i < v.size(); i++) {
-            if (i != 0) {
-                cout << ",";
-            }
-            cout << v[i];
-        }
-        cout << "]";
+    // data structures
+    template <typename T, typename U>
+    static string stringfy(pair<T, U>& p) {
+        string res = "(";
+        res.append(stringfy(p.first));
+        res.append(",");
+        res.append(stringfy(p.second));
+        res.append(")");
+        return res;
     }
-    static void print(vector<vector<string>>& v) {
-        cout << "[";
+    template <typename T>
+    static string stringfy(vector<T>& v) {
+        string res = "[";
         for (int i = 0; i < v.size(); i++) {
             if (i != 0) {
-                cout << ",";
+                res.append(",");
             }
-            print(v[i]);
+            res.append(stringfy(v[i]));
         }
-        cout << "]";
+        res.append("]");
+        return res;
+    }
+    template <typename T, typename U>
+    static string stringfy(unordered_map<T, U>& map) {
+        string res = "{";
+        for (pair<const T, U>& e : map) {
+            res.append(stringfy(e));
+            res.append(",");
+        }
+        res.pop_back();
+        res.append("}");
+        return res;
+    }
+    template <typename T>
+    static string stringfy(unordered_set<T>& set) {
+        string res = "{";
+        for (const T& e : set) {
+            res.append(stringfy(e));
+            res.append(",");
+        }
+        res.pop_back();
+        res.append("}");
+        return res;
+    }
+
+    // print wrappers
+    template <typename T>
+    static void print(T& e) {
+        cout << stringfy(e);
+        cout << endl;
+    }
+    template <typename T>
+    static void print(T& e, bool b) {
+        cout << stringfy(e);
+        if (!b) {
+            cout << endl;
+        }
     }
 };
