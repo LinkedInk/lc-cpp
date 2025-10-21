@@ -1,5 +1,7 @@
-// #include "..\pasta\headers.cpp"
-// #include "pasta\headers.cpp"
+/*
+#include "..\pasta\headers.cpp"
+#include "pasta\headers.cpp"
+*/
 
 #include <iostream>
 #include <vector>
@@ -11,6 +13,7 @@
 #include <unordered_map>
 #include <sstream>
 #include <unordered_set>
+#include <bitset>
 using namespace std;
 
 #include "my_print.cpp"

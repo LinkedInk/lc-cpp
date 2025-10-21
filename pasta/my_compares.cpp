@@ -60,28 +60,28 @@ public:
         return a < b;
     }
     template <typename T, typename U>
-    static bool pairAscAsc(pair<T, U>& p1, pair<T, U>& p2) {
+    static bool pairAscAsc(const pair<T, U>& p1, const pair<T, U>& p2) {
         if (p1.first != p2.first) {
             return p1.first < p2.first;
         }
         return p1.second < p2.second;
     }
     template <typename T, typename U>
-    static bool pairAscDesc(pair<T, U>& p1, pair<T, U>& p2) {
+    static bool pairAscDesc(const pair<T, U>& p1, const pair<T, U>& p2) {
         if (p1.first != p2.first) {
             return p1.first < p2.first;
         }
         return p1.second > p2.second;
     }
     template <typename T, typename U>
-    static bool pairDescAsc(pair<T, U>& p1, pair<T, U>& p2) {
+    static bool pairDescAsc(const pair<T, U>& p1, const pair<T, U>& p2) {
         if (p1.first != p2.first) {
             return p1.first > p2.first;
         }
         return p1.second < p2.second;
     }
     template <typename T, typename U>
-    static bool pairDescDesc(pair<T, U>& p1, pair<T, U>& p2) {
+    static bool pairDescDesc(const pair<T, U>& p1, const pair<T, U>& p2) {
         if (p1.first != p2.first) {
             return p1.first > p2.first;
         }
