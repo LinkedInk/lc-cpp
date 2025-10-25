@@ -96,4 +96,16 @@ public:
             cout << endl;
         }
     }
+    template <typename T>
+    static void print(T e) {
+        cout << stringfy(e);
+        cout << endl;
+    }
+    template <typename T>
+    static void print(T e, bool b) {
+        cout << stringfy(e);
+        if (!b) {
+            cout << endl;
+        }
+    }
 };
