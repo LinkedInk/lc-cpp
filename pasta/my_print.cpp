@@ -20,7 +20,10 @@ public:
     static string stringfy(string& i) {
         return i;
     }
-    static string stringfy(char& i) {
+    static string stringfy(const char*& i) {
+        return i;
+    }
+    static string stringfy(char i) {
         string res;
         res.push_back(i);
         return res;
