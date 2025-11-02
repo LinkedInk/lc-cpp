@@ -85,27 +85,29 @@ public:
 
     // print wrappers
     template <typename T>
-    static void print(T& e) {
-        cout << stringfy(e);
-        cout << endl;
-    }
-    template <typename T>
-    static void print(T& e, bool b) {
-        cout << stringfy(e);
-        if (!b) {
-            cout << endl;
-        }
-    }
-    template <typename T>
     static void print(T e) {
         cout << stringfy(e);
         cout << endl;
     }
+    // template <typename T>
+    // static void print(T e, bool b) {
+    //     cout << stringfy(e);
+    //     if (b) {
+    //         cout << endl;
+    //     }
+    // }
     template <typename T>
-    static void print(T e, bool b) {
+    static void print(string name, T e) {
+        cout << name << ": ";
         cout << stringfy(e);
-        if (!b) {
-            cout << endl;
-        }
+        cout << endl;
     }
+    // template <typename T>
+    // static void print(string name, T e, bool b) {
+    //     cout << name << ": ";
+    //     cout << stringfy(e);
+    //     if (b) {
+    //         cout << endl;
+    //     }
+    // }
 };

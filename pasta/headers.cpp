@@ -14,6 +14,8 @@
 #include <sstream>
 #include <unordered_set>
 #include <bitset>
+#include <numeric>
 using namespace std;
 
 #include "my_print.cpp"
+#include "my_hashes.cpp"
