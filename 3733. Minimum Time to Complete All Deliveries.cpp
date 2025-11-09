@@ -36,4 +36,27 @@ public:
         totalTime += remainder;
         return totalTime;
     }
+    // B search solution
+    // long long LCM;
+    // long long minimumTime(vector<int> d, vector<int> r) {
+    //     LCM = lcm(r[0], r[1]);
+    //     long long LB = 0;
+    //     long long UB = LLONG_MAX;
+    //     long long mid = (UB - LB) / 2 + LB;
+    //     while (LB < UB) {
+    //         if (possibleInTime(mid, d, r)) {
+    //             UB = mid;
+    //         } else {
+    //             LB = mid + 1;
+    //         }
+    //         mid = (UB - LB)/2 + LB;
+    //     }
+    //     return UB;
+    // }
+    // bool possibleInTime(long long time, vector<int>& d, vector<int>& r) {
+    //     long long maxD0 = time - time / r[0];
+    //     long long maxD1 = time - time / r[1];
+    //     long long maxD = time - time / LCM; 
+    //     return maxD0 >= d[0] && maxD1 >= d[1] && maxD >= d[0] + d[1];
+    // }
 };
